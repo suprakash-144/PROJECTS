@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.nvabar{
+    display: flex;
+    background-color: rgb(24, 35, 47);
+    color: white;
+}
+ul{
+    list-style: none;
+}
+li{
+    padding: 1rem;
+    font-weight:bold;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+}
+body{
+    background-color:rgb(42, 13, 50);
+}
+.main{
+    height:30rem;
+    color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center; 
+    text-align: center;
+    font-size:2rem;
+}
+.tile{
+   margin-top:1rem;
+}
+#clicker{
+    height:10rem;
+    width:10rem;
+    border:1px solid red;
+    background-color:red;
+    border-radius:100%;
+    transition: background-color 0.2s ease-in-out;
+}
+#clicker:hover{
+    background-color:white;
+    transform: scale(1.01);
+}
