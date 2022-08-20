@@ -22,3 +22,7 @@ It may ask you for location asccess to show weather of the city you are in.
 * Open Weather API (Current weather api)
 
 ## Screenshots
+
+![2022-08-20](https://user-images.githubusercontent.com/92419286/185750867-d91b8582-f763-4e02-a1b7-20251af43c9a.png)
+![2022-08-20 (1)](https://user-images.githubusercontent.com/92419286/185750880-54c54185-610b-4f39-aa70-4f87f1a733b2.png)
+![2022-08-20 (2)](https://user-images.githubusercontent.com/92419286/185750881-dc97f1f2-89bd-47d9-a6ef-e3cd5ef8ab45.png)
