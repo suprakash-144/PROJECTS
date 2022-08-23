@@ -1,6 +1,8 @@
 # Weather APP
 Get to know the weather status of any location around the world.
 
+https://suprakash-144.github.io/web-development/Weather%20App/
+
 ## Description
 
 A dynamic weather website built using just HTML,CSS and Javascript using open weather API where you can search weather status of any city around the world. The results will be shown precisely that includes fields for:
