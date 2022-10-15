@@ -1,18 +1,27 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!DOCTYPE html>
-    <html lang="en">
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<link rel="stylesheet" href="../assest/style.css">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Profile</title>
-    </head>
 
 <body>
-    <h1> Profile page</h1>
-    <h2>Welcome <%= name%> !!</h2>
+    <%- include("common/nav") -%>
+        <h1> Profile page</h1>
+        <h2>Welcome <%= name%> !!</h2>
+        <h2>address: <%= data.address%>
+        </h2>
+        <h2>email: <%= data.email%>
+        </h2>
+        <ul>
+            <% data.skills.forEach((item)=>{%>
+                <li>
+                    <%= item %>
+                </li>
+                <%}) %>
+        </ul>
 </body>
 
 </html>
