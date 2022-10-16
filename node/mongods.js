@@ -12,3 +12,14 @@ User.find({}, function (err, user) {
   if (err) console.warn(err);
   console.warn(user);
 });
+
+const entry = new User({
+  _id: new mongoose.Types.ObjectId(),
+  Name: "Soumyajit ",
+  Email: "Soumyajit@gmail.com",
+  Phone: "9547997545",
+});
+console.log(entry);
+entry.save().catch((err) => {
+  console.warn(err);
+});
