@@ -54,27 +54,40 @@ app.post("/register", jsonparser, (req, res) => {
     });
 });
 
-app.get("/login", jsonparser, (req, res) => {
-  User.find({ Email: req.body.Email })
-    .then((user) => {
-      // var decisper = crypto.createDecipheriv(
-      //   "aes-256-cbc",
-      //   Buffer.from(key),
-      //   iv
-      // );
-      // var decrypted = decisper.update(user.Password);
-      // decrypted = Buffer.concat([decrypted, decisper.final()]);
-      // decrypted = decrypted.toString("hex");
-      // if (req.body.Password == decrypted) {
-      //   // jwt.sign({ user }, jwtkey, { expiresIn: "300s" }, (err, token) => {
-      //   //   if (err) console.warn(err);
-      //   //   else res.json(token);
-      //   res.json(user);
-      // } else res.send("acces denied");
-      // // res.render("home", { data: data });
-    })
-    .catch((err) => {
-      console.warn(err);
-    });
+app.post("/login", jsonparser, (req, res) => {
+  User.findOne({ Email: req.body.Email }).then((user) => {
+    // res.send(user.Password);
+    var decisper = crypto.createDecipheriv("aes-256-cbc", Buffer.from(key), iv);
+    var decrypted = decisper.update(user.Password);
+    decrypted = Buffer.concat([decrypted, decisper.final()]);
+    decrypted = decrypted.toString("hex");
+    // console.warn(decrypted);
+    if (req.body.Password == decrypted) {
+      jwt.sign({ user }, jwtkey, { expiresIn: "300s" }, (err, token) => {
+        if (err) console.warn(err);
+        else res.json(token);
+      });
+      // res.render("home", { data: user });
+    }
+  });
 });
+app.get("/login", verifytoken, (req, res) => {
+  User.find().then((result) => {
+    res.json(result);
+  });
+});
+function verifytoken(req, res, next) {
+  var bearerheader = req.headers["authentication"];
+  if (typeof bearerheader !== "undefined") {
+    var bearer = bearerheader.split(" ")[1];
+    req.token = bearer;
+    jwt.verify(req.token, jwtkey, (err, authData) => {
+      if (err) {
+        res.json({ result: err });
+      } else {
+        next();
+      }
+    });
+  }
+}
 app.listen(3000);
