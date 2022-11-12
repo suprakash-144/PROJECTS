@@ -1,0 +1,11 @@
+body {
+  background-color: antiquewhite;
+}
+.filter_input {
+  width: 45%;
+  margin: 0.3rem;
+}
+.filter_input input {
+  width: 100%;
+  padding: 0.31rem;
+}
